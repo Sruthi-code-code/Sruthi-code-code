@@ -1,7 +1,14 @@
-n=int(input())
-rev=0
-while n!=0:
-    rem=n%10
-    rev=rev*10+rem
-    n//=10
-print(rev)
+class Solution:
+    def reverse(self, x: int) -> int:
+        sign=-1 if x<0 else 1
+        x=abs(x)
+        revnum=0
+        while (x>0):
+            r=x%10
+            x=x//10
+            revnum=(revnum*10)+r
+        revnum*=sign
+        if revnum>2**31-1 or revnum<-2**31:
+            return 0 
+        return revnum
+        
